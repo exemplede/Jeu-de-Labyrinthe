@@ -10,7 +10,8 @@ filename = "monlaby_1.txt"
 map = []
 with open(filename, "r") as f:
     map = [list(line.strip()) for line in f.readlines()]
-
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 # Personnages et éléments du jeu
 aventurier = {
     "position": [6, 0],
@@ -41,7 +42,7 @@ def print_header(temps_mis, moves_count):
     print(f"          M (menu), Q (quitter)\n")
 
 def printmap(map, aventurier, joyau):
-    os.system("clear")
+    clear_screen()
     temps_mis = time.time() - start_time
     print_header(temps_mis, moves_count)
     
